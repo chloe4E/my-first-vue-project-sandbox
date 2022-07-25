@@ -1,17 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <LifecycleTest />
+  <CongratulationsBanner :numberOfClicks="numberOfClicks" />
+  <CounterButton @increment="increment" :numberOfClicks="numberOfClicks" />
+  <PeopleList />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import PeopleList from "./components/PeopleList";
+import CounterButton from "./components/CounterButton";
+import CongratulationsBanner from "./components/CongratulationsBanner";
+import LifecycleTest from "./components/LifecycleTest";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    PeopleList,
+    CounterButton,
+    CongratulationsBanner,
+    LifecycleTest,
+  },
+  data() {
+    return { numberOfClicks: 0 };
+  },
+  methods: {
+    increment() {
+      this.numberOfClicks += 1;
+    },
+  },
+};
 </script>
 
 <style>
